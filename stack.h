@@ -49,9 +49,19 @@ public:
                 prev = cur;
                 cur = cur->next;
             }
-            prev->next = nullptr;
-            delete top;
-            top = prev;
+            if (prev)
+            {
+                prev->next = nullptr;
+                delete top;
+                top = prev;
+            }
+            else if (head == top)
+            {
+                delete top;
+                delete head;
+                top = head = nullptr;
+            }
+            
             return value;
         }
     }
