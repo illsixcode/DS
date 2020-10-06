@@ -59,7 +59,7 @@ class DoublyLinkedList{
 
     unshift(val){
         if(!this.head){
-            this.push(val);
+            return this.push(val);
         }else{
             const newHead = new Node(val);
             newHead.next = this.head;
