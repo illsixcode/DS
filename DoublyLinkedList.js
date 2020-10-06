@@ -133,4 +133,23 @@ class DoublyLinkedList{
          --this.length;
         return target;
     }
+    
+    reverse(){
+        if(this.length < 2) return this;
+        let current = this.head;
+        let before = null;
+        let next = null;
+        for(let i =0; i < this.length; ++i){
+            next = current.next;
+            current.next = before;
+            current.prev = next;
+            before = current;
+            current = next;    
+        }
+        const tempHead = this.head;
+        this.head =this.tail;
+        this.tail = tempHead;
+        
+        return this;
+    }    
 }
